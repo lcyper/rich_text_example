@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
+
+  final ScrollController _scrollController = ScrollController();
 
   final String appBarTitle = 'חיי שרה';
   final String content =
@@ -18,12 +20,18 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
         centerTitle: true,
+        elevation: 0,
       ),
       body: Scrollbar(
         scrollbarOrientation: ScrollbarOrientation.left,
-        isAlwaysShown: true,
+        // isAlwaysShown: true,
         interactive: true,
+        controller: _scrollController,
+        radius: const Radius.circular(25),
+        thickness: 10,
         child: ListView(
+          padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+          controller: _scrollController,
           children: [
             Directionality(
               textDirection: TextDirection.rtl,
@@ -32,13 +40,13 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     TextSpan(
                         text: content.split(' ')[0],
-                        style: TextStyle(fontWeight: FontWeight.bold)),
+                        style: const TextStyle(fontWeight: FontWeight.bold)),
                     TextSpan(
                       text: content.substring(content.split(' ')[0].length),
                     ),
                   ],
                 ),
-                style: TextStyle(fontSize: 20),
+                style: const TextStyle(fontSize: 20),
               ),
             ),
           ],
