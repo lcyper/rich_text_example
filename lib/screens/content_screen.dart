@@ -91,7 +91,7 @@ class _ContentScreenState extends State<ContentScreen> {
     if (_scrollControllerOffset != 0.0) {
       _scrollController.animateTo(
         _scrollControllerOffset,
-        duration: const Duration(seconds: 1),
+        duration: const Duration(milliseconds: 500),
         curve: Curves.ease,
       );
     }
