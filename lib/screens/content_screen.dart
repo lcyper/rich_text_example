@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rich_text_example/screens/custom_search_delegate.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ContentScreen extends StatefulWidget {
@@ -48,6 +49,17 @@ class _ContentScreenState extends State<ContentScreen> {
             ),
           ],
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              showSearch(
+                context: context,
+                delegate: CustomSearchDelegate(content),
+              );
+            },
+            icon: Icon(Icons.search_rounded),
+          ),
+        ],
         centerTitle: true,
         elevation: 0,
       ),
